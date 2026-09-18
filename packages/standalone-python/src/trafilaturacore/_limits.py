@@ -72,9 +72,11 @@ class _SourceLexer(HTMLParser):
         if self.nodes > MAX_NODES:
             raise ResourceLimitError("source node limit exceeded")
 
-    def set_cdata_mode(self, elem: str) -> None:
+    def set_cdata_mode(self, elem: str, *, escapable: bool = False) -> None:
         """Match libxml's raw names and permissive end-tag syntax."""
         super().set_cdata_mode(elem)
+        if hasattr(self, "_escapable"):
+            self._escapable = escapable
         self.interesting = (
             re.compile(r"(?!x)x")
             if elem == "plaintext"
