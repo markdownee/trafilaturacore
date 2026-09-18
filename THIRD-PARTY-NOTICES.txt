@@ -1,0 +1,184 @@
+Trafilatura Core third-party notices
+
+This file records notices required for third-party material distributed with
+Trafilatura Core. The project itself is licensed under Apache-2.0; see LICENSE.
+
+Trafilatura (Apache-2.0)
+------------------------
+
+Trafilatura Core's TypeScript implementation is derived from Trafilatura, by
+Adrien Barbaresi and the Trafilatura contributors. Its native Python implementation
+translates that TypeScript source. Files containing derived expression carry a header
+naming the exact upstream revision and source path, and state how the port was
+modified.
+
+Source revision:
+https://github.com/adbar/trafilatura/tree/c1bc9531a2a978326112ca9987e1382745116136
+(version 2.2.0)
+
+DOI: 10.5281/zenodo.3460969
+
+Ported areas include extraction settings, text utilities, XPath rules,
+htmlprocessing (including its XML-to-HTML output mapping), main extraction,
+baseline recovery, extraction orchestration, selected tree/parser/option
+semantics, and the metadata and cleaning-policy modules.
+
+The pinned Trafilatura source attributes `trafilatura/xml.py::delete_element`
+to lxml's `lxml.html` helper at the following link, which is retained verbatim
+as upstream attribution rather than treated as an unpinned implementation
+authority:
+https://github.com/lxml/lxml/blob/master/src/lxml/html/__init__.py
+
+Apache-2.0 terms:
+https://www.apache.org/licenses/LICENSE-2.0
+The full text also accompanies this distribution as LICENSE. Upstream ships an
+Apache-2.0 LICENSE and no root NOTICE file.
+
+lxml.html-derived element deletion (BSD-3-Clause)
+------------------------------------------------
+
+The Trafilatura-derived element-deletion helper in the TypeScript and Python tree adapters
+retains lxml.html ancestry through Trafilatura's xml.py::delete_element.
+The upstream link above records that ancestry. The following terms accompany
+the derived helper; the project's own Apache-2.0 licence remains unchanged.
+
+Copyright (c) 2004 Ian Bicking. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+1. Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in
+the documentation and/or other materials provided with the
+distribution.
+
+3. Neither the name of Ian Bicking nor the names of its contributors may
+be used to endorse or promote products derived from this software
+without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL IAN BICKING OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+go-trafilatura (Apache-2.0)
+---------------------------
+
+go-trafilatura supplied the DOM/HTML translation pattern used when expressing
+Trafilatura's lxml XPath rules as per-rule predicate functions. No go-trafilatura
+rule body, constant, or threshold is reproduced, and where it encodes an older
+Trafilatura release the pinned Python revision above governs.
+
+Copyright (C) 2021 Markus Mobius
+
+Source revision:
+https://github.com/markusmobius/go-trafilatura/tree/67c3f2a1ca17e9a7b9643239d88d5fe25a36b6ed
+
+Apache-2.0 terms:
+https://www.apache.org/licenses/LICENSE-2.0
+The full text also accompanies this distribution as LICENSE. Upstream ships an
+Apache-2.0 LICENSE and no root NOTICE file.
+
+Generated Unicode 15 compatibility data (Unicode-3.0)
+------------------------------------------------------
+
+Applies to the Unicode 15 property ranges and case-mapping data in the
+TypeScript and Python implementations.
+
+UNICODE LICENSE V3
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright © 2020-2024 Unicode, Inc.
+
+NOTICE TO USER: Carefully read the following legal agreement. BY
+DOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING DATA FILES, AND/OR
+SOFTWARE, YOU UNEQUIVOCALLY ACCEPT, AND AGREE TO BE BOUND BY, ALL OF THE
+TERMS AND CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT
+DOWNLOAD, INSTALL, COPY, DISTRIBUTE OR USE THE DATA FILES OR SOFTWARE.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of data files and any associated documentation (the "Data Files") or
+software and any associated documentation (the "Software") to deal in the
+Data Files or Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, and/or sell
+copies of the Data Files or Software, and to permit persons to whom the
+Data Files or Software are furnished to do so, provided that either (a)
+this copyright and permission notice appear with all copies of the Data
+Files or Software, or (b) this copyright and permission notice appear in
+associated Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF
+THIRD PARTY RIGHTS.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE
+BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES,
+OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA
+FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall
+not be used in advertising or otherwise to promote the sale, use or other
+dealings in these Data Files or Software without prior written
+authorization of the copyright holder.
+
+SPDX-License-Identifier: Unicode-3.0
+
+saxes 6.0.0 (ISC)
+-----------------
+
+Applies to the optional JavaScript dependency closure through jsdom.
+The native Python product does not bundle saxes or other Node dependencies.
+
+The ISC License
+
+Copyright (c) Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+The ISC License
+
+Copyright (c) Isaac Z. Schlueter and Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Vendored Node dependencies
+--------------------------
+
+Where provided, dependency-local MIT, ISC, BSD, and other legal files remain
+alongside their packages inside vendored node_modules and are not duplicated
+here.

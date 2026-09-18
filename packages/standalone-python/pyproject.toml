@@ -1,0 +1,114 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trafilaturacore"
+version = "0.1.0a3"
+description = "Native Python main-content extraction and HTML cleaning for supplied HTML (alpha)."
+readme = "README.md"
+requires-python = ">=3.10"
+# A flat expression naming this project's own licence, with the vendored payload's
+# attribution carried in `license-files` rather than folded into the expression.
+# Adopted 2026-08-24 to match the field: pip, setuptools, playwright, maturin and
+# cibuildwheel all declare flat expressions over vendored trees, and PEP 639's
+# Non-Goals put vendored dependencies out of its scope. The previous archive-scope
+# composite (Apache-2.0 AND 0BSD AND BlueOak-1.0.0 AND BSD-2-Clause AND BSD-3-Clause
+# AND CC0-1.0 AND ISC AND MIT AND MIT-0 AND Unicode-3.0) is preserved in
+# @/docs/legal/issues/done/trafilaturacore-blocker-python-apache-metadata/ and in the
+# convergence record @/docs/legal/issues/done/2026-08-24-engine-wheels-declare-divergent-licensing-postures/.
+license = "Apache-2.0"
+# Dependencies install separately; the product wheel contains no vendored engine.
+license-files = [
+  "LICENSE",
+  "THIRD-PARTY-NOTICES.txt",
+]
+authors = [{ name = "glueo", email = "company@glueo.com" }]
+keywords = [
+  "trafilatura",
+  "content-extraction",
+  "boilerplate-removal",
+  "readability",
+  "html",
+  "web-scraping",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Microsoft :: Windows",
+  "Topic :: Text Processing :: Markup :: HTML",
+  "Typing :: Typed",
+]
+dependencies = [
+  "courlan==1.4.0",
+  "htmldate==1.10.0",
+  "lxml>=5.3,<7",
+  "nh3>=0.3,<0.4",
+]
+
+[project.optional-dependencies]
+test = [
+  "hatchling>=1.27",
+  "pytest>=9.1.1",
+  "pytest-asyncio>=1.4",
+  "ruff>=0.16",
+  "trafilatura==2.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/markdownee/trafilaturacore"
+Repository = "https://github.com/markdownee/trafilaturacore"
+Issues = "https://github.com/markdownee/trafilaturacore/issues"
+"npm package" = "https://www.npmjs.com/package/trafilaturacore"
+
+# Exclude obsolete ignored staging trees from both distribution formats.
+[tool.hatch.build]
+exclude = ["src/trafilaturacore/_vendor/**", "**/__pycache__/**"]
+
+# The product is pure Python; lxml and nh3 supply their own platform dependencies.
+[tool.hatch.build.targets.wheel]
+packages = ["src/trafilaturacore"]
+
+# The custom hook requires LICENSE and THIRD-PARTY-NOTICES.txt to be staged beside
+# this file in a disposable candidate before standard wheel and sdist builds.
+[tool.hatch.build.targets.wheel.hooks.custom]
+path = "hatch_build.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src/trafilaturacore",
+  "/hatch_build.py",
+  "/tests",
+  "/build-constraints.txt",
+  "/README.md",
+  "/pyproject.toml",
+]
+
+[tool.hatch.build.targets.sdist.hooks.custom]
+path = "hatch_build.py"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "S"]
+# S101: assert in tests. S603/S607: we spawn via argv lists (never a shell) with a
+# resolved interpreter path — the subprocess warnings do not apply.
+ignore = ["S101", "S603", "S607"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+addopts = "-q"

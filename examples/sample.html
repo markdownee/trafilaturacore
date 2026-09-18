@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How boilerplate removal works — Example Blog</title>
+    <meta name="description" content="A short article used by the trafilaturacore examples.">
+    <meta name="author" content="Jane Doe">
+  </head>
+  <body>
+    <nav><a href="/">Home</a> <a href="/about">About</a> <a href="/blog">Blog</a></nav>
+
+    <header>
+      <h1>How boilerplate removal works</h1>
+      <p class="byline">By Jane Doe · 2026-07-09</p>
+    </header>
+
+    <article>
+      <p>
+        Boilerplate removal keeps a page's main content and discards the navigation, sidebars,
+        advertisements, and footers that surround it. Trafilatura scores candidate nodes and keeps
+        the subtree that most plausibly carries the article body.
+      </p>
+
+      <h2>Why the mode matters</h2>
+      <p>
+        Precision drops the most and risks losing a stray paragraph; recall keeps more and risks
+        pulling in a sidebar. Balanced sits between them and is the default. Whichever mode runs,
+        the cleaning stage sanitizes the result: scripts, event handlers, and dangerous URL schemes
+        never survive.
+      </p>
+
+      <table>
+        <caption>
+          Boilerplate modes
+        </caption>
+        <tr>
+          <th>Mode</th>
+          <th>Behavior</th>
+        </tr>
+        <tr>
+          <td>precision</td>
+          <td>Strictest; drops the most</td>
+        </tr>
+        <tr>
+          <td>balanced</td>
+          <td>The default</td>
+        </tr>
+        <tr>
+          <td>recall</td>
+          <td>Keeps more content</td>
+        </tr>
+      </table>
+
+      <figure>
+        <img src="/img/diagram.png" alt="Extraction pipeline diagram">
+        <figcaption>The extraction pipeline.</figcaption>
+      </figure>
+
+      <p>Read more in the <a href="https://trafilatura.readthedocs.io/">Trafilatura docs</a>.</p>
+    </article>
+
+    <aside class="sidebar">
+      <h3>Related</h3>
+      <ul>
+        <li><a href="/x">Some unrelated link</a></li>
+        <li><a href="/y">Another unrelated link</a></li>
+      </ul>
+    </aside>
+
+    <footer>© 2026 Example Blog · <a href="/privacy">Privacy</a></footer>
+  </body>
+</html>

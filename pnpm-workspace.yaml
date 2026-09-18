@@ -1,0 +1,26 @@
+packages:
+  - "packages/*"
+  - "tools/*"
+  - "examples/*"
+
+# The override below is licence hygiene, not a security floor, and must stay
+# here: launder@1.7.1 declares a licence in package.json but publishes no
+# copyright-and-permission notice in any tarball, so it is replaced rather than
+# redistributed. This file is the mirror's canonical pnpm-workspace.yaml and
+# governs TypeScript dependency installation. Native Python dependencies install
+# separately; Python artifacts contain no vendored JavaScript tree.
+#
+# The key is SCOPED to one parent, not version-bounded: it constrains neither
+# parent nor child version, so a bumped sanitize-html keeps matching and silently
+# receives this shim.
+#
+# The former `css-select>boolbase` and `nth-check>boolbase` keys were retired on
+# 2026-08-07: trafilaturacore no longer depends on linkedom, so nothing in the
+# released graph reaches css-select, nth-check, or boolbase at all.
+#
+# A `pnpm.overrides` block in the mirror's root package.json would silently
+# shadow every override here, re-admitting the package into the released graph.
+# Keep licence overrides out of that file.
+# See packages/standalone/dependency-replacements/README.md.
+overrides:
+  'sanitize-html>launder': 'file:./packages/standalone/dependency-replacements/launder'

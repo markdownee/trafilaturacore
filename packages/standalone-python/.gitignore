@@ -1,0 +1,20 @@
+# Residual wrapper assets (flattened JS tree + current-platform .node).
+# The former staging script is removed; these are never authored or distributed.
+/src/trafilaturacore/_vendor/cli/
+# Residual vendored notices from that wrapper; not native Python legal inputs.
+/src/trafilaturacore/_vendor/licenses/
+
+# Python build/test artifacts
+/dist/
+/build/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local virtualenvs + uv lockfile (this is a published library; the lock is a
+# dev-only convenience, kept out of the tree per the repo's lockfiles-gitignored policy)
+/.venv/
+/venv/
+uv.lock

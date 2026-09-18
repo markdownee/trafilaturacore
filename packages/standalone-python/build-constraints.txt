@@ -1,0 +1,6 @@
+# Exact PyPI build-backend inputs for the release wheels. A reviewed release input: the release
+# workflow installs these and then builds with `python -m build --wheel --no-isolation`, so the
+# backend is fully pinned rather than resolved at build time.
+hatchling==1.27.0
+packaging==25.0
+build==1.3.0

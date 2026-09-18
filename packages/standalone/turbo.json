@@ -1,0 +1,18 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      // dist/build-provenance.json embeds the current Git and source identity. Always
+      // regenerate it rather than restoring a package built in another repository state.
+      "cache": false,
+      // Turbo's strict env mode hands a task only what is declared, so an image build that
+      // sets TRAFILATURACORE_BUILD_PROVENANCE=skip in its Dockerfile would otherwise see the
+      // variable dropped here and fail on the Git the provenance step cannot find. It is
+      // passThroughEnv rather than env because this task is uncached either way.
+      "passThroughEnv": ["TRAFILATURACORE_BUILD_PROVENANCE"],
+      "outputs": ["dist/**"]
+    }
+  }
+}
