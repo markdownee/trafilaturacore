@@ -6,9 +6,9 @@
       <td>
         <img width="220" src="https://www.trafilaturacore.com/media/cover-mini.svg" alt="Trafilatura Core — wire-drawing illustration" />
         <br />
-        <a href="https://www.npmjs.com/package/trafilaturacore"><img src="https://img.shields.io/npm/v/trafilaturacore.svg" alt="npm version" /></a>
+        <a href="https://www.npmjs.com/package/@markdownee/trafilaturacore"><img src="https://img.shields.io/npm/v/%40markdownee%2Ftrafilaturacore.svg" alt="npm version" /></a>
         <br />
-        <a href="https://github.com/markdownee/trafilaturacore/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/trafilaturacore.svg" alt="license" /></a>
+        <a href="https://github.com/markdownee/trafilaturacore/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/%40markdownee%2Ftrafilaturacore.svg" alt="license" /></a>
         <br />
         <a href="https://github.com/markdownee/trafilaturacore/actions/workflows/release-npm.yml"><img src="https://github.com/markdownee/trafilaturacore/actions/workflows/release-npm.yml/badge.svg" alt="release" /></a>
         <br />
@@ -76,7 +76,7 @@ Alpha. APIs may change before a stable release.
 ## Usage
 
 ```ts
-import { Boilerplate, clean } from 'trafilaturacore';
+import { Boilerplate, clean } from '@markdownee/trafilaturacore';
 
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const { html, metadata, messages } = await clean(pageHtml, {
@@ -98,7 +98,7 @@ same extraction and cleaning settings as `clean()`. Pass its HTML to
 cleaning pipeline again:
 
 ```ts
-import { Boilerplate, formatSecuredHtml, prepare } from 'trafilaturacore';
+import { Boilerplate, formatSecuredHtml, prepare } from '@markdownee/trafilaturacore';
 
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const prepared = await prepare(pageHtml, { boilerplate: Boilerplate.Balanced });
@@ -144,7 +144,7 @@ still passes through extraction and cleaning; it may be removed by those stages.
   detected comment containers.
 
 ```ts
-import { clean, ImageHandling, LinkHandling } from 'trafilaturacore';
+import { clean, ImageHandling, LinkHandling } from '@markdownee/trafilaturacore';
 
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const { html } = await clean(pageHtml, {
@@ -173,7 +173,7 @@ Pass a custom `config` as a `CleanConfig` object of JSON-serializable data. It
 **replaces the default Trafilatura-aligned config**:
 
 ```ts
-import { Boilerplate, clean, type CleanConfig } from 'trafilaturacore';
+import { Boilerplate, clean, type CleanConfig } from '@markdownee/trafilaturacore';
 
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const config: CleanConfig = {
@@ -229,7 +229,7 @@ HTML to stdout (Unix-pipe friendly). It **never fetches the network** — `--url
 context only (metadata + image resolution), exactly like the library option.
 
 ```sh
-npm install -g trafilaturacore        # or: npx trafilaturacore …
+npm install -g @markdownee/trafilaturacore # or: npx @markdownee/trafilaturacore …
 ```
 
 ```bash

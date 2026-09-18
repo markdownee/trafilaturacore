@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "trafilaturacore"
-version = "0.1.0a3"
+version = "0.1.0a4"
 description = "Native Python main-content extraction and HTML cleaning for supplied HTML (alpha)."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -66,7 +66,7 @@ test = [
 Homepage = "https://github.com/markdownee/trafilaturacore"
 Repository = "https://github.com/markdownee/trafilaturacore"
 Issues = "https://github.com/markdownee/trafilaturacore/issues"
-"npm package" = "https://www.npmjs.com/package/trafilaturacore"
+"npm package" = "https://www.npmjs.com/package/@markdownee/trafilaturacore"
 
 # Exclude obsolete ignored staging trees from both distribution formats.
 [tool.hatch.build]

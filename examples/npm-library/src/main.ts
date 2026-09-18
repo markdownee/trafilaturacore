@@ -9,7 +9,7 @@ import {
   ImageHandling,
   LinkHandling,
   TableHandling,
-} from 'trafilaturacore';
+} from '@markdownee/trafilaturacore';
 
 // trafilaturacore is HTML in -> cleaned HTML out, and OFFLINE: clean() never
 // fetches the network. Everything below runs against a local sample file.

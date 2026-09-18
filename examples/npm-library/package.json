@@ -8,7 +8,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "trafilaturacore": "workspace:*"
+    "@markdownee/trafilaturacore": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^26.5.1",

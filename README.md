@@ -19,7 +19,7 @@
             <sub><a href="https://www.trafilaturacore.com/">playground</a>, <a href="https://www.trafilaturacore.com/help/">help</a></sub>
           </li>
           <li>
-            <strong><a href="https://www.npmjs.com/package/trafilaturacore">npm package</a></strong>
+            <strong><a href="https://www.npmjs.com/package/@markdownee/trafilaturacore">npm package</a></strong>
             <br />
             <sub>alpha / pre-release</sub>
           </li>
@@ -112,8 +112,8 @@ This is a pnpm + turbo monorepo.
 pnpm install
 
 # Build, then test the local package
-pnpm --filter trafilaturacore build
-pnpm --filter trafilaturacore test
+pnpm --filter @markdownee/trafilaturacore build
+pnpm --filter @markdownee/trafilaturacore test
 ```
 
 Use it as a **library**:
