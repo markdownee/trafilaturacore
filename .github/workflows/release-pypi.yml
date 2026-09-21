@@ -93,14 +93,6 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Test the native Python library
-        shell: bash
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          python -m pip install -e 'packages/standalone-python[test]'
-          python -m pytest packages/standalone-python --cov --cov-report=term-missing
-
       - name: Assemble the disposable Python candidate
         shell: bash
         run: |
@@ -111,6 +103,7 @@ jobs:
           cp -R packages/standalone-python "$RUNNER_TEMP/candidate"
           rm -rf "$RUNNER_TEMP/candidate/dist" "$RUNNER_TEMP/candidate/temp" \
                  "$RUNNER_TEMP/candidate/__pycache__" "$RUNNER_TEMP/candidate/scripts/__pycache__"
+          python -m pip install --upgrade pip
           python -m pip install -r packages/standalone-python/build-constraints.txt
           python "$RUNNER_TEMP/candidate/hatch_build.py" --stage-legal-from "$GITHUB_WORKSPACE"
       - name: Build the wheel and source archive

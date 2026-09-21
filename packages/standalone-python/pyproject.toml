@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "trafilaturacore"
-version = "0.8.0"
+version = "0.8.1"
 description = "Native Python main-content extraction and HTML cleaning for supplied HTML."
 readme = "README.md"
 requires-python = ">=3.10"

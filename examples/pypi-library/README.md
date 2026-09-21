@@ -15,7 +15,7 @@ The Python API and serialization can differ from the TypeScript implementation.
 Install the matching native release when it is available:
 
 ```bash
-pip install trafilaturacore==0.8.0
+pip install trafilaturacore==0.8.1
 python main.py
 python async_example.py
 ```
