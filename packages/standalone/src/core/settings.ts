@@ -222,7 +222,7 @@ export const MIN_OUTPUT_COMM_SIZE = 1;
 /** Maximum parsed nesting depth. */
 export const MAX_TREE_DEPTH = 512;
 
-/** Nonoptional extraction input ceiling in UTF-8 bytes. */
+/** Non-optional extraction input ceiling in UTF-8 bytes. */
 export const MAX_INPUT_BYTES = 32 * 1024 * 1024;
 
 /** Maximum preflight nodes; depth is guarded independently. */

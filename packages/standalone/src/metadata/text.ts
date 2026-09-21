@@ -70,7 +70,3 @@ export function iterText(element: HElement): string {
   }
   return output.join(' ');
 }
-
-export function dedupeOrdered(values: Iterable<string>): string[] {
-  return Array.from(new Set(values));
-}

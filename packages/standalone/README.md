@@ -1,10 +1,10 @@
-# trafilaturacore
+# Trafilatura Core
 
 <table align="right">
   <tbody>
     <tr>
       <td>
-        <img width="220" src="https://www.trafilaturacore.com/media/cover-mini.svg" alt="Trafilatura Core — wire-drawing illustration" />
+        <img width="220" src="https://www.trafilaturacore.com/media/logo.svg" alt="Trafilatura Core" />
         <br />
         <a href="https://www.npmjs.com/package/@markdownee/trafilaturacore"><img src="https://img.shields.io/npm/v/%40markdownee%2Ftrafilaturacore.svg" alt="npm version" /></a>
         <br />
@@ -12,7 +12,7 @@
         <br />
         <a href="https://github.com/markdownee/trafilaturacore/actions/workflows/release-npm.yml"><img src="https://github.com/markdownee/trafilaturacore/actions/workflows/release-npm.yml/badge.svg" alt="release" /></a>
         <br />
-        <a href="https://github.com/markdownee/trafilaturacore"><img src="https://img.shields.io/badge/status-alpha-orange.svg" alt="status: alpha" /></a>
+        <a href="https://github.com/markdownee/trafilaturacore"><img src="https://img.shields.io/badge/languages-TypeScript%20%2B%20Python-blue.svg" alt="TypeScript and Python" /></a>
         <h3>Also available as:</h3>
         <ul>
           <li>
@@ -29,15 +29,18 @@
   </tbody>
 </table>
 
-Trafilatura Core is an open-source pure-TypeScript port of the canonical Python
-[Trafilatura](https://github.com/adbar/trafilatura) project. It converts supplied
-HTML into clean main-content HTML, combining two stages behind one API:
+Trafilatura Core is a library for main-content extraction and boilerplate removal from HTML documents.
+
+- Two language versions — **TypeScript** and **Python**: available as a [TypeScript library on npm](https://www.npmjs.com/package/@markdownee/trafilaturacore) and a [Python library on PyPI](https://pypi.org/project/trafilaturacore/).
+- Trafilatura Core is an **open-source fork** of the Python library [Trafilatura](https://github.com/adbar/trafilatura), with [go-trafilatura](https://github.com/markusmobius/go-trafilatura) as a DOM translation aid.
+- The **Core** in the name means it is reduced to one task: main-content extraction and boilerplate removal. Other packages should handle output conversion to Markdown or other formats, such as [Turndown](https://www.npmjs.com/package/turndown) for Markdown, and fetching and crawling, such as [Markdownee](https://www.markdownee.com/).
+
+This TypeScript package converts supplied HTML into clean main-content HTML,
+combining two stages behind one API:
 
 - **Extraction** — the main-content layer that removes navigation, sidebars,
   footers, and similar boilerplate. It is a direct port of Python Trafilatura
-  v2.2.0's `fast=True` extraction path, using
-  [go-trafilatura](https://github.com/markusmobius/go-trafilatura) only as a DOM
-  translation aid. A parity suite compares the selected text with that
+  v2.2.0's `fast=True` extraction path. A parity suite compares the selected text with that
   pinned upstream path on every committed fixture, in all three boilerplate modes
   that extract main content: precision, balanced, and recall.
   Upstream's two extractor-comparison stages depend on third-party extractors and
@@ -64,14 +67,10 @@ Markdown, text, and multi-format output workflows.
 
 ## Native Python alternative
 
-TypeScript is the primary implementation. A maintained alpha [Python library](https://pypi.org/project/trafilaturacore/)
-implements the supplied-HTML API natively in Python; it has no product CLI or bundled
-Node product engine. See the [Python guide](https://www.trafilaturacore.com/help/) for
+A maintained [Python library](https://pypi.org/project/trafilaturacore/) implements
+the supplied-HTML API natively in Python; it has no product CLI or bundled Node
+product engine. See the [Python guide](https://www.trafilaturacore.com/help/) for
 installation, API differences, and examples.
-
-## Status
-
-Alpha. APIs may change before a stable release.
 
 ## Usage
 
@@ -81,7 +80,7 @@ import { Boilerplate, clean } from '@markdownee/trafilaturacore';
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const { html, metadata, messages } = await clean(pageHtml, {
   boilerplate: Boilerplate.Balanced,
-  url: 'https://example.com/article', // optional context; never fetched
+  url: 'https://en.wikipedia.org/wiki/Web_scraping', // optional context; never fetched
 });
 ```
 
@@ -98,7 +97,11 @@ same extraction and cleaning settings as `clean()`. Pass its HTML to
 cleaning pipeline again:
 
 ```ts
-import { Boilerplate, formatSecuredHtml, prepare } from '@markdownee/trafilaturacore';
+import {
+  Boilerplate,
+  formatSecuredHtml,
+  prepare,
+} from '@markdownee/trafilaturacore';
 
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const prepared = await prepare(pageHtml, { boilerplate: Boilerplate.Balanced });
@@ -144,7 +147,11 @@ still passes through extraction and cleaning; it may be removed by those stages.
   detected comment containers.
 
 ```ts
-import { clean, ImageHandling, LinkHandling } from '@markdownee/trafilaturacore';
+import {
+  clean,
+  ImageHandling,
+  LinkHandling,
+} from '@markdownee/trafilaturacore';
 
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const { html } = await clean(pageHtml, {
@@ -173,14 +180,21 @@ Pass a custom `config` as a `CleanConfig` object of JSON-serializable data. It
 **replaces the default Trafilatura-aligned config**:
 
 ```ts
-import { Boilerplate, clean, type CleanConfig } from '@markdownee/trafilaturacore';
+import {
+  Boilerplate,
+  clean,
+  type CleanConfig,
+} from '@markdownee/trafilaturacore';
 
 const pageHtml = '<main><h1>Example</h1><p>Supplied HTML.</p></main>';
 const config: CleanConfig = {
   allowedTags: ['p', 'a', 'strong', 'em'],
   allowedAttributes: { a: ['href'] },
 };
-const { html } = await clean(pageHtml, { boilerplate: Boilerplate.Balanced, config });
+const { html } = await clean(pageHtml, {
+  boilerplate: Boilerplate.Balanced,
+  config,
+});
 ```
 
 `CleanConfig` fields: `allowedTags`, `allowedAttributes`, `allowedClasses`,
@@ -229,7 +243,9 @@ HTML to stdout (Unix-pipe friendly). It **never fetches the network** — `--url
 context only (metadata + image resolution), exactly like the library option.
 
 ```sh
-npm install -g @markdownee/trafilaturacore # or: npx @markdownee/trafilaturacore …
+npm install -g @markdownee/trafilaturacore
+# Or run on demand:
+npx @markdownee/trafilaturacore --help
 ```
 
 ```bash
@@ -269,8 +285,11 @@ exit non-zero with a clear stderr message.
 
 ## Acknowledgements
 
+Report problems through the
+[issue tracker](https://github.com/markdownee/trafilaturacore/issues).
+
 - [Trafilatura](https://github.com/adbar/trafilatura) — original Python implementation by Adrien Barbaresi.
-- [go-trafilatura](https://github.com/markusmobius/go-trafilatura) — Go port by Markus Mobius.
+- [go-trafilatura](https://github.com/markusmobius/go-trafilatura) — Go port by Markus Mobius, used as a DOM translation aid.
 
 Licensed under the [Apache License, Version 2.0](./LICENSE). See the compact
 [third-party notices](https://github.com/markdownee/trafilaturacore/blob/main/THIRD-PARTY-NOTICES.txt)

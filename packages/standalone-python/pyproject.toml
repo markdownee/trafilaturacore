@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "trafilaturacore"
-version = "0.1.0a5"
-description = "Native Python main-content extraction and HTML cleaning for supplied HTML (alpha)."
+version = "0.8.0"
+description = "Native Python main-content extraction and HTML cleaning for supplied HTML."
 readme = "README.md"
 requires-python = ">=3.10"
 # A flat expression naming this project's own licence, with the vendored payload's
@@ -33,7 +33,6 @@ keywords = [
   "web-scraping",
 ]
 classifiers = [
-  "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
@@ -58,6 +57,7 @@ test = [
   "hatchling>=1.27",
   "pytest>=9.1.1",
   "pytest-asyncio>=1.4",
+  "pytest-cov>=7",
   "ruff>=0.16",
   "trafilatura==2.2.0",
 ]
@@ -112,3 +112,11 @@ testpaths = ["tests"]
 pythonpath = ["src"]
 asyncio_mode = "auto"
 addopts = "-q"
+
+[tool.coverage.run]
+branch = true
+source = ["trafilaturacore"]
+
+[tool.coverage.report]
+fail_under = 75
+show_missing = true

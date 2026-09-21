@@ -18,4 +18,4 @@ export * from './types.js';
 /**
  * Package version for library consumers.
  */
-export const VERSION = '0.1.0-alpha.1';
+export const VERSION = '0.8.0';

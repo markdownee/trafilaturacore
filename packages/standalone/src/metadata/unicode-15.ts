@@ -741,11 +741,6 @@ export const PYTHON_312_REJECTED_RANGES: ReadonlyArray<readonly [number, number]
 export const PYTHON_312_REJECTED_RANGES_SHA256 =
   'db7ad5d7d448b8ab693b32539a419ec9cb3eba850e8d72508b664c4e307485bb';
 
-/** CPython 3.12 not (char.isprintable() or char.isspace()). */
-export function isRejectedByPython312(codePoint: number): boolean {
-  return containsCodePoint(PYTHON_312_REJECTED_RANGES, codePoint);
-}
-
 export const PYTHON_312_DECIMAL_RANGES: ReadonlyArray<readonly [number, number]> = [
   [0x0030, 0x0039],
   [0x0660, 0x0669],

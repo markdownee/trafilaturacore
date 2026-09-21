@@ -1,20 +1,21 @@
-# trafilaturacore
+# Trafilatura Core
 
 [![PyPI version](https://img.shields.io/pypi/v/trafilaturacore.svg)](https://pypi.org/project/trafilaturacore/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/trafilaturacore.svg)](https://pypi.org/project/trafilaturacore/)
 [![license](https://img.shields.io/pypi/l/trafilaturacore.svg)](https://github.com/markdownee/trafilaturacore/blob/main/LICENSE)
 
-Extract main content and clean supplied HTML with a native Python library. Results contain
-an HTML fragment, diagnostics, and page metadata. TypeScript remains Trafilatura Core's primary
-implementation; both language libraries live in the same repository.
+Trafilatura Core is a library for main-content extraction and boilerplate removal from HTML documents.
 
-> **Alpha / experimental.** The Python library is maintained, but not fully tested or officially
-> supported. Its API may change.
+- Two language versions — **TypeScript** and **Python**: available as a [TypeScript library on npm](https://www.npmjs.com/package/@markdownee/trafilaturacore) and a [Python library on PyPI](https://pypi.org/project/trafilaturacore/).
+- Trafilatura Core is an **open-source fork** of the Python library [Trafilatura](https://github.com/adbar/trafilatura), with [go-trafilatura](https://github.com/markusmobius/go-trafilatura) as a DOM translation aid.
+- The **Core** in the name means it is reduced to one task: main-content extraction and boilerplate removal. Other packages should handle output conversion to Markdown or other formats, such as [Turndown](https://www.npmjs.com/package/turndown) for Markdown, and fetching and crawling, such as [Markdownee](https://www.markdownee.com/).
 
-Python extraction translates Trafilatura Core's primary TypeScript implementation of
-[Trafilatura](https://github.com/adbar/trafilatura) 2.2.0's fast path. The native library owns
-its extraction and metadata assembly, with lxml and nh3 for parsing and cleaning. htmldate
-and Courlan retain Python's date and URL behavior. It does not start Node or bundle a JavaScript engine.
+This native Python library extracts main content and cleans supplied HTML. Results
+contain an HTML fragment, diagnostics, and page metadata. It implements
+Trafilatura 2.2.0's fast path, with lxml and nh3 for parsing and cleaning.
+htmldate and Courlan retain Python's date and URL behavior. It does not start
+Node or bundle a JavaScript engine. Both language libraries live in the same
+repository.
 
 Trafilatura Core processes supplied HTML offline. The optional URL provides metadata and
 image-resolution context; it is not a fetch request. Use
@@ -26,7 +27,7 @@ control, sanitize at your own output boundary and apply a CSP.
 ## Install
 
 ```bash
-pip install "trafilaturacore==0.1.0a1"
+pip install "trafilaturacore==0.8.0"
 ```
 
 Requires Python 3.10 or newer. The product wheel contains Python code; lxml and nh3 install
@@ -148,16 +149,13 @@ Python's conservative preflight limits nesting to 128 levels, 100,000 source nod
 200,000 aggregate attributes, and 50,000 expanded table cells. Intermediate/output HTML is
 limited to 32 MiB. JSON parser exhaustion raises a resource error.
 
-## Contributing
-
-Issues and pull requests are welcome at the
-[issue tracker](https://github.com/markdownee/trafilaturacore/issues). TypeScript and Python
-are maintained in the same [source repository](https://github.com/markdownee/trafilaturacore).
+Report problems through the
+[issue tracker](https://github.com/markdownee/trafilaturacore/issues).
 
 ## Acknowledgements
 
 - [Trafilatura](https://github.com/adbar/trafilatura) — original Python implementation by Adrien Barbaresi.
-- [go-trafilatura](https://github.com/markusmobius/go-trafilatura) — Go port by Markus Mobius, used by the TypeScript port.
+- [go-trafilatura](https://github.com/markusmobius/go-trafilatura) — Go port by Markus Mobius, used as a DOM translation aid.
 
 Licensed under [Apache-2.0](https://github.com/markdownee/trafilaturacore/blob/main/LICENSE).
 See the compact [third-party notices](https://github.com/markdownee/trafilaturacore/blob/main/THIRD-PARTY-NOTICES.txt).
