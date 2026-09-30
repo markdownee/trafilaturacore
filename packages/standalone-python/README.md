@@ -13,10 +13,7 @@
         <h3>Docs</h3>
         <strong><a href="https://www.trafilaturacore.com/help/getting-started/">Getting started</a></strong> | <strong><a href="https://www.trafilaturacore.com/help/pypi/">Python library help</a></strong>
         <h3>Social</h3>
-        <ul>
-          <li><a href="https://github.com/markdownee/trafilaturacore">Star us on GitHub</a></li>
-          <li><a href="https://github.com/markdownee">Follow us on GitHub</a></li>
-        </ul>
+        <strong><a href="https://github.com/markdownee/trafilaturacore">Star us on GitHub</a></strong> | <strong><a href="https://github.com/markdownee">Follow us on GitHub</a></strong>
       </td>
     </tr>
   </tbody>

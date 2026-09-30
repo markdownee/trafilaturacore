@@ -1,9 +1,23 @@
 {
   "name": "@markdownee/trafilaturacore",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "private": false,
   "type": "module",
   "description": "Extract main content by removing boilerplate from supplied HTML.",
+  "keywords": [
+    "trafilatura",
+    "content-extraction",
+    "main-content",
+    "boilerplate-removal",
+    "article-extraction",
+    "html-cleaning",
+    "html-processing",
+    "html",
+    "readability",
+    "typescript",
+    "llm",
+    "rag"
+  ],
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
