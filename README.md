@@ -31,10 +31,10 @@
           <li><a href="https://www.trafilaturacore.com/help/pypi/">Python library help</a></li>
         </ul>
         <h3>Social</h3>
-        <p>
-          <a href="https://github.com/markdownee/trafilaturacore">Star us on GitHub</a><br />
-          <a href="https://github.com/markdownee">Follow us on GitHub</a>
-        </p>
+        <ul>
+          <li><a href="https://github.com/markdownee/trafilaturacore">Star us on GitHub</a></li>
+          <li><a href="https://github.com/markdownee">Follow us on GitHub</a></li>
+        </ul>
       </td>
     </tr>
   </tbody>
@@ -60,6 +60,13 @@ The [library reference](https://www.trafilaturacore.com/help/npm-library/) cover
 custom cleaning rules and resource limits; the
 [CLI guide](https://www.trafilaturacore.com/help/npm-cli/) covers file input,
 standard input, and JSON results.
+
+The [Python library](https://www.trafilaturacore.com/help/pypi/) exposes synchronous
+`clean()` and asynchronous `aclean()` calls, without a product CLI. The two language
+versions may differ in parsing, serialization, date and URL handling, diagnostics,
+and resource limits; use the guide for your language when selecting options. Keep
+the original HTML beside the extracted result when comparing precision, balanced,
+and recall settings.
 
 ## Try the CLI
 

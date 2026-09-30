@@ -32,10 +32,10 @@
           <li><a href="https://www.trafilaturacore.com/help/npm-library/">Library help</a></li>
         </ul>
         <h3>Social</h3>
-        <p>
-          <a href="https://github.com/markdownee/trafilaturacore">Star us on GitHub</a><br />
-          <a href="https://github.com/markdownee">Follow us on GitHub</a>
-        </p>
+        <ul>
+          <li><a href="https://github.com/markdownee/trafilaturacore">Star us on GitHub</a></li>
+          <li><a href="https://github.com/markdownee">Follow us on GitHub</a></li>
+        </ul>
       </td>
     </tr>
   </tbody>
@@ -61,6 +61,13 @@ The [library reference](https://www.trafilaturacore.com/help/npm-library/) cover
 custom cleaning rules and resource limits; the
 [CLI guide](https://www.trafilaturacore.com/help/npm-cli/) covers file input,
 standard input, and JSON results.
+
+The CLI reads a local file or standard input and can write cleaned HTML or a JSON
+result. Library calls return `html`, `messages`, and available metadata. Custom
+configuration uses JSON fields from the
+[library reference](https://www.trafilaturacore.com/help/npm-library/); inputs beyond
+`maxInputBytes` raise `RangeError`. Select resource limits for the documents your
+application accepts, and inspect diagnostic messages alongside the extracted HTML.
 
 ## Usage: library
 
