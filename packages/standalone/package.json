@@ -1,9 +1,9 @@
 {
   "name": "@markdownee/trafilaturacore",
-  "version": "0.8.2",
+  "version": "0.8.4",
   "private": false,
   "type": "module",
-  "description": "Offline supplied-HTML extraction, cleaning, and sanitization in pure TypeScript.",
+  "description": "Extract main content by removing boilerplate from supplied HTML.",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

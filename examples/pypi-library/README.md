@@ -1,39 +1,35 @@
-# Trafilatura Core — PyPI library example
+# Trafilatura Core Python examples
 
-Shows the native Python library's public API: the sync `clean()` and the async
-`aclean()`, the four boilerplate modes, the image, link, table, and user-comment
-handling modes, a custom JSON cleaning config, and the boundary guards.
+These programs clean the supplied [sample HTML](../sample.html) _without fetching
+a page_. `main.py` demonstrates extraction modes, content controls, metadata,
+custom cleaning, and input limits. `async_example.py` runs `aclean()` across the
+four modes.
 
-TypeScript is the primary implementation. The maintained Python library translates
-that engine and uses native lxml/nh3 adapters to process supplied HTML. It provides no product
-CLI and bundles no Node product engine. Dependencies install separately.
+## Run the examples
 
-The Python API and serialization can differ from the TypeScript implementation.
-
-## Install the native version
-
-Install the matching native release when it is available:
+Use Python 3.10 or newer. From this directory in a downloaded or cloned
+[repository](https://github.com/markdownee/trafilaturacore), run:
 
 ```bash
-pip install trafilaturacore==0.8.2
+pip install trafilaturacore
 python main.py
 python async_example.py
 ```
 
-## Run against this checkout (unreleased changes)
+Both programs print results to the terminal: cleaned HTML lengths, available
+metadata, and checks of the selected controls. They do not write cleaned files.
 
-`./run.sh` stages the legal files in a disposable candidate, builds a
-`py3-none-any` wheel and source archive, installs the wheel into a fresh virtual
-environment, and runs both example scripts. It requires `uv` and Python 3.12;
-the library itself supports Python 3.10 or newer. It downloads Python build and
-runtime dependencies but needs no Node.js build or browser setup.
+## Test the local package
+
+With `uv` and Python 3.12 available, run from this directory:
 
 ```bash
 ./run.sh
 ```
 
-The runner prints the temporary artifact directory. Its wheel can also be passed
-to the Markdownee example runner to test both native libraries together.
+The runner builds a wheel and source archive in a temporary directory, installs
+the wheel in a fresh environment, and executes both programs. It prints the
+artifact directory; dependencies are downloaded during setup.
 
-The [package README](../../packages/standalone-python/README.md) describes the
-supported options and differences from the TypeScript API.
+The [Python guide](https://www.trafilaturacore.com/help/pypi/) covers the supported
+API and its differences from TypeScript. Python provides library APIs only.

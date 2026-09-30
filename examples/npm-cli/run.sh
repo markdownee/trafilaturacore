@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Demonstrates the full npm CLI surface for trafilaturacore.
-# Requires: npm install -g trafilaturacore
-# (or swap `trafilaturacore` for `npx trafilaturacore`)
+# Requires: npm install -g @markdownee/trafilaturacore
+# For a local package installation, use `npx trafilaturacore` instead.
 #
 # trafilaturacore is OFFLINE: HTML in -> cleaned HTML out. It never fetches the
 # network, so there is no URL to crawl. Input is a file argument or stdin; the
