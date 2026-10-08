@@ -4,7 +4,7 @@
   <tbody>
     <tr>
       <td>
-        <img align="right" width="220" src="https://www.trafilaturacore.com/media/logo.svg" alt="Trafilatura Core" />
+        <img align="right" width="220" src="https://www.trafilaturacore.com/media/logo-opaque.svg" alt="Trafilatura Core" />
         <a href="https://pypi.org/project/trafilaturacore/"><img src="https://img.shields.io/pypi/v/trafilaturacore.svg" alt="PyPI version" /></a>
         <a href="https://pypi.org/project/trafilaturacore/"><img src="https://img.shields.io/pypi/dm/trafilaturacore.svg" alt="PyPI downloads" /></a>
         <a href="https://github.com/markdownee/trafilaturacore/blob/main/LICENSE"><img src="https://img.shields.io/pypi/l/trafilaturacore.svg" alt="license" /></a>

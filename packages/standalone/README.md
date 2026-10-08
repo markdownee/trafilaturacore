@@ -4,7 +4,7 @@
   <tbody>
     <tr>
       <td>
-        <img width="220" src="https://www.trafilaturacore.com/media/logo.svg" alt="Trafilatura Core" />
+        <img width="220" src="https://www.trafilaturacore.com/media/logo-opaque.svg" alt="Trafilatura Core" />
         <br />
         <a href="https://www.npmjs.com/package/@markdownee/trafilaturacore"><img src="https://img.shields.io/npm/v/%40markdownee%2Ftrafilaturacore.svg" alt="npm version" /></a>
         <br />
