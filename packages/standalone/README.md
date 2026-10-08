@@ -45,9 +45,11 @@ Trafilatura Core extracts main content by removing boilerplate from HTML documen
 
 - Two language versions — **TypeScript** and **Python**: available as a [TypeScript library on npm](https://www.npmjs.com/package/@markdownee/trafilaturacore) and a [Python library on PyPI](https://pypi.org/project/trafilaturacore/).
 
-- Trafilatura Core is an **open-source fork** of the Python library [Trafilatura](https://github.com/adbar/trafilatura), with [go-trafilatura](https://github.com/markusmobius/go-trafilatura) as a DOM translation aid.
+- This **open-source TypeScript port** follows [Python Trafilatura](https://github.com/adbar/trafilatura)'s `fast=True` extraction path, with [go-trafilatura](https://github.com/markusmobius/go-trafilatura) as a DOM translation aid. Trafilatura Core also has a native Python implementation, translated from this TypeScript code.
 
 - The _Core_ in its name means it is reduced to one task: extracting main content by removing boilerplate. An optional Source URL supplies metadata and image-resolution context; it is _never fetched_. Use [Turndown](https://www.npmjs.com/package/turndown) for Markdown conversion and [Markdownee](https://www.markdownee.com/) for crawling live websites.
+
+- [Compared with Mozilla Readability](https://www.trafilaturacore.com/comparison/), Trafilatura and Trafilatura Core use layered structural and content heuristics with fallback and recall escalation, rather than centering extraction on the candidate scoring inherited from Arc90’s original readability.js article extractor; Trafilatura Core also offers configuration options for boilerplate removal.
 
 This package provides the TypeScript library and CLI. It returns cleaned HTML, available page metadata, and diagnostic messages.
 
