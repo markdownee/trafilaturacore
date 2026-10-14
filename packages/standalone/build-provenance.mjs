@@ -238,16 +238,8 @@ async function digestSourceInputs(repoRoot, layout) {
     }
   }
 
-  const files = [...new Set([...tracked, ...layout.materializedInputPaths])].sort(comparePaths);
-  const hash = createHash('sha256');
-  hash.update('trafilaturacore-source-inputs-v1\0');
-  for (const relative of files) {
-    const content = await readFile(path.join(repoRoot, relative));
-    hash.update(`${Buffer.byteLength(relative)}\0${relative}\0${content.byteLength}\0`);
-    hash.update(content);
-    hash.update('\0');
-  }
-  return { sha256: hash.digest('hex'), files: files.length };
+  const files = [...new Set([...tracked, ...layout.materializedInputPaths])];
+  return digestFiles(repoRoot, files, 'trafilaturacore-source-inputs-v1');
 }
 
 /**

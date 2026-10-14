@@ -9,6 +9,7 @@ import { DEFAULT_CLEAN_CONFIG, deriveContentConfig } from './cleaning/config.js'
 import { readBaseHref } from './cleaning/images.js';
 import { formatSecuredHtml } from './cleaning/presentation.js';
 import { extract, validate } from './core/binding.js';
+import { RESOURCE_LIMIT_ERROR_CODE } from './core/error.js';
 import { extractMetadata } from './metadata/index.js';
 import {
   type CleanOptions,
@@ -32,10 +33,11 @@ function detail(error: unknown): string {
 
 function resourceFailure(error: unknown): boolean {
   if (error === null || typeof error !== 'object') return false;
-  const code = 'ERR_TRAFILATURACORE_RESOURCE_LIMIT';
   return (
-    ('code' in error && error.code === code) ||
-    ('message' in error && typeof error.message === 'string' && error.message.includes(`${code}:`))
+    ('code' in error && error.code === RESOURCE_LIMIT_ERROR_CODE) ||
+    ('message' in error &&
+      typeof error.message === 'string' &&
+      error.message.includes(`${RESOURCE_LIMIT_ERROR_CODE}:`))
   );
 }
 

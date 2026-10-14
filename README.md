@@ -48,8 +48,6 @@ Trafilatura Core extracts main content by removing boilerplate from HTML documen
 
 - The _Core_ in its name means it is reduced to one task: extracting main content by removing boilerplate. An optional Source URL supplies metadata and image-resolution context; it is _never fetched_. Use [Turndown](https://www.npmjs.com/package/turndown) for Markdown conversion and [Markdownee](https://www.markdownee.com/) for crawling live websites.
 
-- [Compared with Mozilla Readability](https://www.trafilaturacore.com/comparison/), Trafilatura and Trafilatura Core use layered structural and content heuristics with fallback and recall escalation, rather than centering extraction on the candidate scoring inherited from Arc90’s original readability.js article extractor; Trafilatura Core also offers configuration options for boilerplate removal.
-
 The npm package also provides a [CLI](https://www.trafilaturacore.com/help/npm-cli/) for supplied HTML. Both libraries return cleaned HTML, available page metadata, and diagnostic messages; Python provides library APIs only.
 
 Choose precision, balanced, or recall extraction, or keep for whole-document
